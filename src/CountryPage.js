@@ -5,6 +5,7 @@ export class CountryPage extends Component {
     return (
       <div className="main">
         <h1 className="country-title">MEXICO</h1>
+        
         <div className="footer">
           <div className="add-button">+</div>
         </div>
