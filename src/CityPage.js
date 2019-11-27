@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 
 export class CityPage extends Component {
-  render() {
+  state = {
+    id:null
+  }
+  componentDidMount = () => {
     let id = this.props.match.params.city_id
-    console.log(id)
+    this.setState({
+      id:id
+    })
+  }
+  render() {
     return (
       <div className="container">
-        {id}
+        {this.state.id}
       </div>
     )
   }
