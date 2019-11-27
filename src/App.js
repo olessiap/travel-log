@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CityPage from './CityPage'
 import CountryPage from './CountryPage'
-import { BrowserRouter, Route  } from 'react-router-dom'
+import { BrowserRouter, Route, Switch  } from 'react-router-dom'
 
 export class App extends Component {
   constructor(props) {
@@ -36,8 +36,12 @@ export class App extends Component {
     })
     return (
       <BrowserRouter>
-        <Route exact path="/" render={(props) => <CountryPage {...props} cities={this.state.cities}/> } />
-        <Route to path="/:city_id" render={(props) => <CityPage {...props} city_id={id}  cities={this.state.cities}/> } />
+        <div className="App">
+          <Switch>
+            <Route exact path="/" render={(props) => <CountryPage {...props} cities={this.state.cities}/> } />
+            <Route to path="/:city_id" render={(props) => <CityPage {...props} city_id={id}  cities={this.state.cities}/> } />
+          </Switch>
+        </div>
       </BrowserRouter>
     )
   }
