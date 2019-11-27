@@ -1,34 +1,9 @@
 import React, { Component } from 'react'
 
 export class CountryPage extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state={
-      cities:[
-        {
-          id:1,
-          userId:1,
-          title:"Cancun",
-          body:"best things to do in Cancun is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
-        },
-        {
-          id:2,
-          userId:1,
-          title:"Playa De Carmen",
-          body:"best things to do in Playa de Carmen is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
-        },
-        {
-          id:3,
-          userId:1,
-          title:"CDMX",
-          body:"best things to do in CDMX is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
-        }
-      ]
-    }
-  }
   render() {
-    let cities = this.state.cities.map((city, item) => {
+    console.log(this.props)
+    let cities = this.props.cities.map((city, item) => {
       return (
         <div className="card" key={item}>
           <h5>{city.title}</h5>
