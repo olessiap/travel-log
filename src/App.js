@@ -12,19 +12,19 @@ export class App extends Component {
         {
           id:1,
           userId:1,
-          title:"Cancun",
+          name:"Cancun",
           body:"best things to do in Cancun is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
         },
         {
           id:2,
           userId:1,
-          title:"Playa De Carmen",
+          name:"Playa De Carmen",
           body:"best things to do in Playa de Carmen is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
         },
         {
           id:3,
           userId:1,
-          title:"CDMX",
+          name:"CDMX",
           body:"best things to do in CDMX is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
         }
       ]
@@ -37,7 +37,7 @@ export class App extends Component {
     return (
       <BrowserRouter>
         <Route exact path="/" render={(props) => <CountryPage {...props} cities={this.state.cities}/> } />
-        <Route path="/:city_id" render={(props) => <CityPage {...props} city_id={id} /> } />
+        <Route to path="/:city_id" render={(props) => <CityPage {...props} city_id={id}  cities={this.state.cities}/> } />
       </BrowserRouter>
     )
   }

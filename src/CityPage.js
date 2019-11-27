@@ -11,9 +11,20 @@ export class CityPage extends Component {
     })
   }
   render() {
+    const { cities } = this.props
+    const city = cities.map(city => {
+      if(city.id == this.state.id) {
+        return(
+          <div className="post" key={city.id}> 
+            <h4 className="center">{city.name}</h4>
+            <p>{city.body}</p>
+          </div>
+        )
+      }
+    })
     return (
       <div className="container">
-        {this.state.id}
+        {city}
       </div>
     )
   }

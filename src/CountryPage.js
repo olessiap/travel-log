@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export class CountryPage extends Component {
   render() {
-    console.log(this.props)
-    let cities = this.props.cities.length ? (
-      this.props.cities.map((city, item) => {
+    const { cities } = this.props
+    const cityList = cities.length ? (
+      this.props.cities.map(city => {
       return (
-        <div className="post card" key={item}>
+        <div className="post card" key={city.id}>
           <div className="card-content">
-            <span className="card-title">{city.title}</span>
+            <Link to={'/' + city.id}>
+              <span className="card-title">{city.name}</span>
+            </Link>
             <p>{city.body}</p>
           </div>
         </div>
@@ -19,8 +22,8 @@ export class CountryPage extends Component {
     )
     return (
       <div className="container">
-        <h1 className="country-title center">MEXICO</h1>
-          {cities}
+        <h1 className="card-title center">MEXICO</h1>
+          {cityList}
         <div className="footer">
           <div className="add-button">+</div>
         </div>

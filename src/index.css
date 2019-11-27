@@ -66,22 +66,17 @@ img {
     position:relative;
 }
 .country-title {
-    width:50%;
-    margin:0 auto;
-    text-align: center;
     font-size:40px;
-    padding-top:20px;
+    padding:20px;
 }
 
 .footer {
     height:10%;
-    width:100%;
     position: absolute;
     bottom:0;
 }
 
 .add-button {
-    float:right;
     font-size:45px;
     text-align:center;
     padding-right:10px;
