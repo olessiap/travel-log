@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CityPage from './CityPage'
 import CountryPage from './CountryPage'
+import NewCity from './NewCity' 
 import { BrowserRouter, Route, Switch  } from 'react-router-dom'
 
 export class App extends Component {
@@ -22,7 +23,7 @@ export class App extends Component {
           body:"best things to do in Playa de Carmen is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
         },
         {
-          id:3,
+          id:'3',
           userId:1,
           name:"CDMX",
           body:"best things to do in CDMX is drink tequila, eat tacos, go to the beach, relax and have a great time!s"
@@ -39,6 +40,7 @@ export class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path="/" render={(props) => <CountryPage {...props} cities={this.state.cities}/> } />
+            <Route to path="/new" render={(props) => <NewCity {...props} /> } /> 
             <Route to path="/:city_id" render={(props) => <CityPage {...props} city_id={id}  cities={this.state.cities}/> } />
           </Switch>
         </div>

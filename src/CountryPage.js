@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import NewCity from './NewCity';
 
 export class CountryPage extends Component {
+
+  // handleClick = () => {
+  //   this.props.history.push('/new')
+  // }
+  
   render() {
     const { cities } = this.props
     const cityList = cities.length ? (
@@ -25,7 +31,10 @@ export class CountryPage extends Component {
         <h1 className="card-title center">MEXICO</h1>
           {cityList}
         <div className="footer">
-          <div className="add-button">+</div>
+          <Link to={'/new'}>
+            <div className="add-button">+</div>
+          </Link>
+          
         </div>
       </div>
     )
