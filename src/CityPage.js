@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 export class CityPage extends Component {
   state = {
@@ -30,4 +31,10 @@ export class CityPage extends Component {
   }
 }
 
-export default CityPage
+const mapStateToProps = (state) => {
+  return {
+    cities:state.cities
+  }
+}
+
+export default connect(mapStateToProps)(CityPage)

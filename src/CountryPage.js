@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import NewCity from './NewCity';
+import { connect } from 'react-redux'
 
 export class CountryPage extends Component {
-
-  // handleClick = () => {
-  //   this.props.history.push('/new')
-  // }
-  
   render() {
     const { cities } = this.props
     const cityList = cities.length ? (
@@ -41,4 +36,10 @@ export class CountryPage extends Component {
   }
 }
 
-export default CountryPage
+const mapStateToProps = (state) => {
+  return {
+    cities:state.cities
+  }
+}
+
+export default connect(mapStateToProps)(CountryPage)
