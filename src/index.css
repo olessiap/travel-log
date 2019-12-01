@@ -76,9 +76,9 @@ img {
 }
 
 .footer {
-    height:10%;
-    position: absolute;
+    position: sticky;
     bottom:0;
+    background: #fff;
 }
 
 .add-button {
@@ -103,6 +103,7 @@ a {
 form {
   padding:20px;
 }
+
 form button, form h5 {
   margin:10px 0;
 }

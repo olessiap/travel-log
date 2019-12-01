@@ -1,17 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { handleTextChange } from './redux/actions.js'
-import $ from 'jquery'
-
-
-// $(document).ready(function() {
-//   Materialize.updateTextFields();
-// });
+import { addNewCity, handleTextChange } from './redux/actions/cityActions.js'
 
 class NewCity extends React.Component {
-  
   handleChange = (e) => {
-   console.log(e.target.value)
     this.setState({
       [e.target.id]:e.target.value,
       id: Math.floor(Math.random() * (1000 - 1)),
@@ -20,7 +12,13 @@ class NewCity extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
+    this.props.addNewCity(this.state)
+    this.setState({
+      id: '',
+      userId: '',
+      [e.target.id]: ''
+    })
+    this.props.history.push('/')
   }
   render() {
     return (
@@ -28,8 +26,8 @@ class NewCity extends React.Component {
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">New City</h5>
           <div className="input-field">
-            <label htmlFor="city">City</label>
-            <input type="text" id="city" onChange={this.handleChange}/>
+            <label htmlFor="title">City</label>
+            <input type="text" id="title" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
             <label htmlFor="content">City Notes</label>
@@ -44,16 +42,10 @@ class NewCity extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentCity: state.cityR.currentCity
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleTextChange: (e) => dispatch(handleTextChange(e))
+    addNewCity: (city) => dispatch(addNewCity(city)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewCity)
+export default connect(null, mapDispatchToProps)(NewCity)
