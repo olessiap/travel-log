@@ -107,3 +107,11 @@ form {
 form button, form h5 {
   margin:10px 0;
 }
+
+.date{
+  font-size:18px;
+  font-weight: 600;
+}
+label #date {
+  margin-left:-10px
+}

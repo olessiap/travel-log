@@ -1,13 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addNewCity, handleTextChange } from './redux/actions/cityActions.js'
+import { addNewCity } from './redux/actions/cityActions.js'
+import M from "materialize-css";
+import $ from 'jquery'
 
 class NewCity extends React.Component {
+  componentDidMount() {
+    // Auto initialize all the things!
+    M.AutoInit();
+
+   $(".datepicker-done").click(() => {
+      var datepickerValue = $("#date-input").val();  // date-input it's 'id' on datepicker input
+
+      this.setState({ date: datepickerValue });
+    });
+}
   handleChange = (e) => {
     this.setState({
       [e.target.id]:e.target.value,
       id: Math.floor(Math.random() * (1000 - 1)),
-      userId:Math.floor(Math.random() * (1000 - 1))
+      userId:Math.floor(Math.random() * (1000 - 1)),
     })
   }
   handleSubmit = (e) => {
@@ -24,10 +36,13 @@ class NewCity extends React.Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">New City</h5>
           <div className="input-field">
             <label htmlFor="title">City</label>
             <input type="text" id="title" onChange={this.handleChange}/>
+          </div>
+          <div className="input-field">
+            <label htmlFor="date">Date</label>
+            <input type="text" className="datepicker" id="date-input"/>
           </div>
           <div className="input-field">
             <label htmlFor="content">City Notes</label>

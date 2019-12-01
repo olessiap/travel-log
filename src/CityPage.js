@@ -6,7 +6,8 @@ export class CityPage extends Component {
     const city = this.props.city ? (
       <div className="container section post card-content" key={this.props.city.id}> 
         <h4 className="center card-title">{this.props.city.title}</h4>
-        <p>{this.props.city.content}</p>
+        <p className="date">{this.props.city.date}</p>
+        <p className="">{this.props.city.content}</p>
       </div>
     ) : (
       <div className="center">Loading cities...</div>
