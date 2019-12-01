@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 export class CountryPage extends Component {
   render() {
+    console.log(this.props)
     const { cities } = this.props
     const cityList = cities.length ? (
       this.props.cities.map(city => {
@@ -11,9 +12,9 @@ export class CountryPage extends Component {
         <div className="post card" key={city.id}>
           <div className="card-content">
             <Link to={'/' + city.id}>
-              <span className="card-title">{city.name}</span>
+              <span className="card-title">{city.title}</span>
             </Link>
-            <p>{city.body}</p>
+            <p>{city.content}</p>
           </div>
         </div>
       )
@@ -23,7 +24,7 @@ export class CountryPage extends Component {
     )
     return (
       <div className="container">
-        <h1 className="card-title center">MEXICO</h1>
+        <h1 className="card-title center country-title">MEXICO</h1>
           {cityList}
         <div className="footer">
           <Link to={'/new'}>
@@ -38,7 +39,7 @@ export class CountryPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cities:state.cities
+    cities:state.cityR.cities
   }
 }
 
