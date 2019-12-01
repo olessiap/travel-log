@@ -2,39 +2,29 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 export class CityPage extends Component {
-  state = {
-    id:null
-  }
-  componentDidMount = () => {
-    let id = this.props.match.params.city_id
-    this.setState({
-      id:id
-    })
-  }
   render() {
-    const { cities } = this.props
-    const city = cities.map(city => {
-      if(city.id == this.state.id) {
-        return(
-          <div className="post" key={city.id}> 
-            <h4 className="center">{city.name}</h4>
-            <p>{city.body}</p>
-          </div>
-        )
-      }
-    })
+    const city = this.props.city ? (
+      <div className="post" key={this.props.city.id}> 
+        <h4 className="center">{this.props.city.name}</h4>
+        <p>{this.props.city.body}</p>
+      </div>
+    ) : (
+      <div className="center">Loading cities...</div>
+    )
+
     return (
       <div className="container">
-        {city}
+          {city}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let id = Math.round(ownProps.match.params.city_id)
   return {
-    cities:state.cities
-  }
+    city:state.cities.find(city => city.id === id)
+    }
 }
 
 export default connect(mapStateToProps)(CityPage)

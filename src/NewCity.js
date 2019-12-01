@@ -1,12 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class NewCity extends Component {
+class NewCity extends React.Component {
+  
+  handleChange = (e) => {
+    console.log(e.target.value)
+  }
   render() {
     return (
       <div>
         <form>
-          <input type="text"/>
-          <textarea type="text"/>
+          <input type="text" name="city" onChange={this.handleChange}/>
+          <textarea type="text" name="body" onChange={this.handleChange}/>
         </form>
       </div>
     )
