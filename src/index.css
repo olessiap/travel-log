@@ -115,3 +115,12 @@ form button, form h5 {
 label #date {
   margin-left:-10px
 }
+
+/* CITY PAGE */
+
+.card-title {
+  padding-bottom:30px;
+}
+.activity-wrapper {
+  padding-bottom:30px;
+}

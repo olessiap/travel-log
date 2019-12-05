@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 export class CityPage extends Component {
   render() {
-    console.log(this.props.city)
     const day = this.props.city.days.map((day, index) => {
       const date = day.date
       const activity = day.activity.map((item, index) => {
