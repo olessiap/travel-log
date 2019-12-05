@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 export class CountryPage extends Component {
   render() {
+    console.log(this.props)
     const { cities } = this.props
     const cityList = cities.length ? (
       this.props.cities.map(city => {
@@ -11,9 +12,9 @@ export class CountryPage extends Component {
         <div className="post card hoverable" key={city.id}>
           <div className="card-content">
             <Link to={'/' + city.id}>
-              <span className="card-title">{city.title}</span>
+              <span className="card-title">{city.cityName}</span>
             </Link>
-            <p>{city.content}</p>
+            {/* <p>Test!!!</p> */}
           </div>
         </div>
       )
