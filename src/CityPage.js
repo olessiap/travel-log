@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import BackIcon from './images/backicon.png'
 
 export class CityPage extends Component {
+  
+  handleGoHome = () => {
+    this.props.history.push({
+      pathname: "/"
+    })
+  }
+  
   render() {
     const day = this.props.city.days.map((day, index) => {
       const date = day.date
@@ -19,7 +27,10 @@ export class CityPage extends Component {
     })
     const city = this.props.city ? (
       <div className="container section post card-content" key={this.props.city.id}> 
-        <h4 className="center card-title">{this.props.city.cityName}</h4>
+        <div className="city-header">
+          <img src={BackIcon} className="back-button" onClick={this.handleGoHome}/>
+          <h4 className="center card-title">{this.props.city.cityName}</h4>
+        </div>
         {day}
       </div>
     ) : (
