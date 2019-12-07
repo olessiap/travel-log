@@ -6,7 +6,7 @@ export class CityPage extends Component {
   
   handleGoHome = () => {
     this.props.history.push({
-      pathname: "/"
+      pathname: '/'
     })
   }
   
