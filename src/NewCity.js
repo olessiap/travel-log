@@ -5,6 +5,11 @@ import M from "materialize-css";
 import $ from 'jquery'
 
 class NewCity extends React.Component {
+  constructor(props) {
+    super(props)
+
+    // this.createUI = this.createUI.bind(this)
+  }
   componentDidMount() {
     // Auto initialize all the things!
     M.AutoInit();
@@ -15,6 +20,21 @@ class NewCity extends React.Component {
       this.setState({ date: datepickerValue });
     });
 }
+  // createUI = () => {
+    
+  // }
+
+  handleKeyDown(e) {
+    if(e.key === "Enter") {
+      return(
+        <div className="input-field">
+          <label htmlFor="content">City Content</label>
+          <input type="text" id="content" onChange={this.handleChange}/>
+        </div>
+      )
+    }
+  }
+  
   handleChange = (e) => {
     this.setState({
       [e.target.id]:e.target.value,
@@ -35,7 +55,7 @@ class NewCity extends React.Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form className="white">
           <div className="input-field">
             <label htmlFor="title">City</label>
             <input type="text" id="title" onChange={this.handleChange}/>
@@ -44,9 +64,11 @@ class NewCity extends React.Component {
             <label htmlFor="date">Date</label>
             <input type="text" className="datepicker" id="date-input"/>
           </div>
+        </form>
+        <form onSubmit={this.handleSubmit}>
           <div className="input-field">
             <label htmlFor="content">City Notes</label>
-            <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+            <input id="content" onKeyDown={this.handleKeyDown} onChange={this.handleChange}></input>
           </div>
           <div className="input-field">
             <button className="btn pink center">Save</button>

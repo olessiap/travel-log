@@ -1,13 +1,37 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import BackIcon from './images/backicon.png'
 
 export class CityPage extends Component {
+  
+  handleGoHome = () => {
+    this.props.history.push({
+      pathname: '/'
+    })
+  }
+  
   render() {
+    const day = this.props.city.days.map((day, index) => {
+      const date = day.date
+      const activity = day.activity.map((item, index) => {
+        return (
+          <p>{item}</p>
+        )
+      })
+      return (
+        <div className="activity-wrapper">
+          <p className="date">{date}</p>
+          <p className="activity-item">{activity}</p>
+        </div>
+      )
+    })
     const city = this.props.city ? (
       <div className="container section post card-content" key={this.props.city.id}> 
-        <h4 className="center card-title">{this.props.city.title}</h4>
-        <p className="date">{this.props.city.date}</p>
-        <p className="">{this.props.city.content}</p>
+        <div className="city-header">
+          <img src={BackIcon} className="back-button" onClick={this.handleGoHome}/>
+          <h4 className="center card-title">{this.props.city.cityName}</h4>
+        </div>
+        {day}
       </div>
     ) : (
       <div className="center">Loading cities...</div>
