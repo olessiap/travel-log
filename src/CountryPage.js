@@ -15,7 +15,9 @@ export class CountryPage extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.addNewCity(this.state)
-    this.props.history.push(`/edit/${this.state.id}`)
+    this.props.history.push({
+      pathname: `/edit/${this.state.id}`, 
+      state: {city_id:this.state.id}})
     this.setState({
       id: '',
       cityName: ''
