@@ -1,9 +1,8 @@
 const initState = {
   cities:[
     {
-      id:1,
-      userId:1,
       cityName:"Cancun",
+      id:1,
       days: [
         {
           date: '11/12/2020',
@@ -24,9 +23,8 @@ const initState = {
       ]
     },
     {
-      id:2,
-      userId:1,
       cityName:"Tulum",
+      id:2,
       days: [
         {
           date: '11/13/2021',
@@ -56,7 +54,7 @@ const initState = {
     //   },
     // {
     //   id:2,
-    //   userId:1,
+    //   
     //   title:"Playa De Carmen",
     //   content:"best things to do in Playa de Carmen is drink tequila, eat tacos, go to the beach, relax and have a great times"
     // },
