@@ -3,12 +3,19 @@ import { connect } from 'react-redux'
 import { addNewCity } from './redux/actions/cityActions.js'
 import M from "materialize-css";
 import $ from 'jquery'
+import GoHomeButton from "./GoHomeButton"
 
 class NewCity extends React.Component {
   constructor(props) {
     super(props)
 
     // this.createUI = this.createUI.bind(this)
+  }
+
+  handleGoHome = () => {
+    this.props.history.push({
+      pathname: '/'
+    })
   }
   componentDidMount() {
     // Auto initialize all the things!
@@ -55,6 +62,7 @@ class NewCity extends React.Component {
   render() {
     return (
       <div className="container">
+        <GoHomeButton handleGoHome={this.handleGoHome}/>
         <form className="white">
           <div className="input-field">
             <label htmlFor="title">City</label>
@@ -68,7 +76,7 @@ class NewCity extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="input-field">
             <label htmlFor="content">City Notes</label>
-            <input id="content" onKeyDown={this.handleKeyDown} onChange={this.handleChange}></input>
+            <input type="text" id="content" onKeyDown={this.handleKeyDown} onChange={this.handleChange}></input>
           </div>
           <div className="input-field">
             <button className="btn pink center">Save</button>

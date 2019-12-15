@@ -14,7 +14,6 @@ export class CountryPage extends Component {
             <Link to={'/' + city.id}>
               <span className="card-title">{city.cityName}</span>
             </Link>
-            <p>Test!!!</p>
           </div>
         </div>
       )
@@ -37,6 +36,7 @@ export class CountryPage extends Component {
   }
 }
 
+//REDUX ALL CITIES
 const mapStateToProps = (state) => {
   return {
     cities:state.cityR.cities
